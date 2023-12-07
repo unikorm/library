@@ -14,3 +14,7 @@ Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-
 1. make minimal static frontend structure
 2. make simple connection frontend - backend - databaza
 3. then start making features and everything needed here
+
+## mockup
+
+<img width="1680" alt="Snímka obrazovky 2023-12-07 o 22 42 50" src="https://github.com/unikorm/library/assets/71944799/6ecdbae0-530b-4649-8e54-c7a7ee9f96cd">
