@@ -1,4 +1,6 @@
 
+@import '../../_variables';
+
 h1 {
     margin: 1.3rem 0 0;
     text-align: start;
@@ -6,14 +8,22 @@ h1 {
 }
 
 ul {
-    margin: 0;
-    padding: 0;
+    margin: 2rem 0 0;
+    padding: 0 0 2rem;
     list-style-type: none;
+    border-bottom: .2rem solid $lineColor;
+    flex: 1;
+}
+
+hrsd-kniznica-form-to-add-book {
+    margin: auto 0 0;
 }
 
 :host {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    min-width: max-content;
-    max-width: 56rem;
+    width: 100%;
+    max-width: 46rem;
+    text-align: center;
 }
