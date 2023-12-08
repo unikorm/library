@@ -1,3 +1,23 @@
 
 <!-- here will be simple form to add book with name of her, author and a brief description of her -->
-<h4>Add book:</h4>
+<section>
+    <h4>Add book:</h4>
+    <form [formGroup]="form">
+        <div class="form-group">
+          <label for="name">Name of Book:</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+      
+        <div class="form-group">
+          <label for="author">Author:</label>
+          <input type="text" class="form-control" id="author" formControlName="author">
+        </div>
+      
+        <div class="form-group">
+          <label for="description">Some description:</label>
+          <textarea class="form-control" id="description" formControlName="description"></textarea>
+        </div>
+      
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+</section>
