@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+$fontMain: VT323, monospace;
+$fotnSub: Anonymous Pro, monospace;
+$fontColorMain: #fefa00;
+
+$mainColor: #000000;
+// $subColor: #00fedc;
+
+html, body {
+    font-family: $fotnSub;
+    background: $mainColor;
+    color: $fontColorMain;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 3rem 1.4rem 3rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2, h3, h4 {
+    font-family: $fontMain;
+}
