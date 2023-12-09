@@ -1,0 +1,49 @@
+
+@import '../../variables';
+
+section {
+    border: .19rem solid $aboutColor;
+    border-radius: 1.69rem;
+    padding: 1rem;
+}
+
+section h4 {
+    color: $aboutColor;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+section h1,
+section span,
+section p {
+    color: $aboutTextolor;
+}
+
+section h1 {
+    margin: .4rem 0 0;
+    font-size: 2.2rem;
+}
+
+section span {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+section p:first-of-type {
+    font-size: 1.14rem;
+    line-height: 1.37rem;
+    margin: 1.4rem 0 0;
+}
+
+section h4:nth-of-type(2) {
+    margin: 1.8rem 0 0;
+}
+
+:host {
+    width: 100%;
+    max-width: 46rem;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    margin: 1.6rem 0 0;
+}

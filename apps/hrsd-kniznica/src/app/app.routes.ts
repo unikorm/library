@@ -11,8 +11,8 @@ export const appRoutes: Route[] = [
         title: 'Library',
     },
     {
-        path: '/blabla',  // test, here will be dynamic route
+        path: 'blabla',  // test, here will be dynamic route
         component: AboutComponent,
-        title: '',
+        title: 'test about',
     }
 ];
