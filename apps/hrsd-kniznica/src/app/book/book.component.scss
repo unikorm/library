@@ -1,0 +1,66 @@
+
+@import '../../variables';
+
+li {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: .19rem solid $subColor;
+    border-radius: 1.23rem;
+    padding: .5rem .9rem;
+    box-sizing: border-box;
+    margin: .7rem 0 0;
+    cursor: default;
+}
+
+section {
+    text-align: start;
+}
+
+section h4 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+section span {
+    margin: 0;
+    font-size: .8rem;
+    color: $fontColorSub;
+}
+
+aside button {
+    background-color: inherit;
+    border: .15rem solid;
+    border-radius: .4rem;
+    font-size: 1.13rem;
+    padding: .2rem .3rem;
+    cursor: pointer;
+}
+
+aside button:hover {
+    font-size: 1.2rem;
+}
+
+aside button:not(:last-of-type) {
+    margin: 0 .3rem 0 0;
+}
+
+.btnInfo {
+    border-color: $aboutColor !important;
+}
+
+.btnReturn {
+    border-color: $returnColor !important;
+}
+
+.btnLoan {
+    border-color: $lineColor !important;
+}
+
+.btnRemove {
+    border-color: $removeColor !important;
+}
+
+
