@@ -8,9 +8,13 @@
     align-items: center;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    align-self: baseline;
+}
+
 h1 {
     margin: 1.3rem 0 0;
     font-size: 3.8rem;
-    // text-align: left;
-    align-self: baseline;
 }

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { MainComponent } from './main/main.component';
 import { AboutComponent } from './about/about.component';
+
 @Component({
   standalone: true,
   imports: [RouterModule, MainComponent, AboutComponent],
@@ -13,5 +14,5 @@ import { AboutComponent } from './about/about.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'app';
+  // title = 'app';
 }

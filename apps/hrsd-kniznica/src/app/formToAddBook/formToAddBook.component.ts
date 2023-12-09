@@ -1,15 +1,17 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';  // reactive form is used here
 
 @Component({
   selector: 'hrsd-kniznica-form-to-add-book',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './formToAddBook.component.html',
   styleUrl: './formToAddBook.component.scss',
 })
-export class FormToAddBookComponent implements OnInit {
+export class FormToAddBookComponent implements OnInit {  // here will be imported services to handle sending valid forms to backend and database...
+  // title = 'Form to add book';
 
   form!: FormGroup;
 
@@ -18,7 +20,7 @@ export class FormToAddBookComponent implements OnInit {
       name: new FormControl(),
       author: new FormControl(),
       description: new FormControl()
-    }) 
-  }
+    });
+  };
 
 }

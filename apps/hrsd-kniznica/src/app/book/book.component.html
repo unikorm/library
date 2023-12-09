@@ -1,14 +1,14 @@
 
-<!-- here will be book from list of books, so name, author and interactive buttons info, return, loan, delete -->
+<!-- here will be book from list of books with name, author and interactive buttons info, return, loan, delete -->
 <li>
     <section>
-        <h4>Name of book</h4>
-        <span>Author of book</span>
+        <h4>Name of book</h4> <!-- dynamic line -->
+        <span>Author of book</span> <!-- dynamic line -->
     </section>
     <aside>
-        <button class="btnInfo" title="Information about Book">ℹ️</button>
-        <button class="btnReturn">↪️</button>
-        <button class="btnLoan">✅</button>
-        <button class="btnRemove">❌</button>
+        <button class="btnInfo" [routerLink]="['blabla']" title="Information about Book" >ℹ️</button>
+        <button class="btnReturn" title="Return this book" >↪️</button>
+        <button class="btnLoan" title="Loan this book" >✅</button>
+        <button class="btnRemove" title="Remove book from library" >❌</button>
     </aside>
 </li>
