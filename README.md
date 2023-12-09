@@ -17,4 +17,8 @@ Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-
 
 ## mockup
 
-<img width="1680" alt="Snímka obrazovky 2023-12-07 o 22 42 50" src="https://github.com/unikorm/library/assets/71944799/6ecdbae0-530b-4649-8e54-c7a7ee9f96cd">
+<img width="1680" alt="Snímka obrazovky 2023-12-07 o 22 42 50" src="https://github.com/unikorm/library/assets/71944799/6ecdbae0-530b-4649-8e54-c7a7ee9f96cd">  
+
+## actual statis frontend
+
+<img width="1680" alt="Snímka obrazovky 2023-12-09 o 3 05 20" src="https://github.com/unikorm/library/assets/71944799/b638e772-96f1-442d-b35f-3b45cb2de04e">
