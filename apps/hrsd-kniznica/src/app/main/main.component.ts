@@ -1,9 +1,11 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BookComponent } from '../book/book.component';
 import { FormToAddBookComponent } from '../formToAddBook/formToAddBook.component';
+import { Book } from './book.interface';
+import { MainService } from './main.service';
 
 @Component({
   selector: 'hrsd-kniznica-main',
@@ -12,6 +14,17 @@ import { FormToAddBookComponent } from '../formToAddBook/formToAddBook.component
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
 })
-export class MainComponent {  // here must be imported service component to handle showing list of book componnets (their updates of course too)
+export class MainComponent implements OnInit {  // here must be imported service component to handle showing list of book componnets (their updates of course too)
   // title = 'Main';
+  books: Book[] = [];
+
+  constructor(private readonly mainService: MainService) {}
+
+  ngOnInit(): void {
+    this.mainService.getItems().subscribe(res => {
+      this.books = res;
+    }).catch(error => {
+      console.error(error);
+    })
+  }
 }
