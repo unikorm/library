@@ -1,28 +1,20 @@
 
 import { Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 import { Book } from './interfaces/book.interface';
 
 @Injectable()
 export class BooksService {
-    private readonly books: Book[] = [
-        {
-            name: "sapiens",
-            author: "yuval navali",
-            description: "book about our history"
-        },
-        {
-            name: "knife",
-            author: "jo nesbo",
-            description: "book about our crimes"
-        }
-    ]
 
-    findAll(): Book[] {
-        return this.books;
+    constructor(@InjectModel('Book') private readonly bookModel: Model<Book>) {}
+
+    async findAll(): Promise<Book[]> {
+        return await this.bookModel.find()
     }
 
-    findOne(name: string): Book {
-        return this.books.find(book => book.name === name);
+    async findOne(name: string): Promise<Book> {
+        return await this.bookModel.findOne({ name: name });
     }
 }

@@ -11,12 +11,12 @@ export class BooksController {
     constructor(private readonly bookService: BooksService) {}
 
     @Get()  // this will be on getting all books on list of books
-    allBooks(): Book[] {
+    async allBooks(): Promise<Book[]> {
         return this.bookService.findAll();
     }
 
     @Get(':name')  // this will be on getting separate book when user click on about 
-    bookByName(@Param('name') name): Book {
+    async bookByName(@Param('name') name): Promise<Book> {
         return this.bookService.findOne(name)
     }
 
