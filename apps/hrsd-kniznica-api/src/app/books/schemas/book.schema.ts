@@ -1,8 +1,8 @@
 
-import * as mongoose from '@nestjs/mongoose';
+import * as mongoose from 'mongoose';
 
-export const BookSchema =  new mongoose.Schema({
-    name: String,
-    author: String,
-    description: String,
-  });
+export const BookSchema = new mongoose.Schema({
+  name: String,
+  author: String,
+  description: String,
+})
