@@ -10,14 +10,14 @@ export class BooksController {
 
     constructor(private readonly bookService: BooksService) {}
 
-    @Get()
+    @Get()  // this will be on getting all books on list of books
     allBooks(): Book[] {
         return this.bookService.findAll();
     }
 
-    @Get(':id')
-    bookById(@Param('id') id): string {
-        return `book of ${id}`;
+    @Get(':name')  // this will be on getting separate book when user click on about 
+    bookByName(@Param('name') name): Book {
+        return this.bookService.findOne(name)
     }
 
     @Post()

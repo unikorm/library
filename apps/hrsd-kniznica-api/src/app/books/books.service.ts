@@ -21,4 +21,8 @@ export class BooksService {
     findAll(): Book[] {
         return this.books;
     }
+
+    findOne(name: string): Book {
+        return this.books.find(book => book.name === name);
+    }
 }
