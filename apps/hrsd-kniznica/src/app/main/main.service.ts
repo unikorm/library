@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Book } from './book.interface';
 
@@ -9,9 +9,9 @@ import { Book } from './book.interface';
 })
 export class MainService {
 
-  constructor(private readonly http: HttpClient) { }
 
-  getItems() {
-    return this.http.get('http://localhost:3000');
+  getItems(): Observable<Book[]> {
+    return this.http.get<Book[]>('http://localhost:3000', {responseType: 'json'})
+      
   }
 }

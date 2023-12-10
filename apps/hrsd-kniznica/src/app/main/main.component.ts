@@ -16,15 +16,16 @@ import { MainService } from './main.service';
 })
 export class MainComponent implements OnInit {  // here must be imported service component to handle showing list of book componnets (their updates of course too)
   // title = 'Main';
-  books: Book[] = [];
+  books$: Book[] = [];
 
   constructor(private readonly mainService: MainService) {}
 
   ngOnInit(): void {
-    this.mainService.getItems().subscribe(res => {
-      this.books = res;
-    }).catch(error => {
-      console.error(error);
-    })
-  }
-}
+    this.mainService.getItems()
+      .subscribe({
+        next: value => this.books$ = value,
+        error: err => console.error(err),
+        complete: () => console.log('Subscribing books is DONE!')
+      });
+  };
+};
