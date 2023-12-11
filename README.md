@@ -12,8 +12,9 @@ Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-
 ## tasks to do
 
 1. make minimal static frontend structure  ✅
-2. make simple connection frontend - backend - databaza
-3. then start making features and everything needed here
+2. make database + backend workin ✅
+3. make simple connection frontend - backend - databaza
+4. then start making features and everything needed here
 
 ## mockup
 
