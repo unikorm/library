@@ -6,16 +6,16 @@ export type BookDocument = HydratedDocument<Book>;
 
 @Schema()
 export class Book {
-  @Prop()
+  @Prop({ required: true })
   name: string;
 
-  @Prop()
+  @Prop({ required: true })
   author: string;
 
-  @Prop()
+  @Prop({ required: true })
   description: string;
 
-  @Prop()
+  @Prop({ required: true, default: true })
   status: boolean
 }
 
