@@ -1,12 +1,18 @@
 
 @import '../../_variables';
 
-ul {
+section {
+    height: 27.4rem;
+    overflow-y: auto;
     margin: 1.6rem 0 0;
-    padding: 0 0 2rem;
+    padding: 0;
+}
+
+.scrollable-list {
+    padding: 0;
     list-style-type: none;
-    border-bottom: .2rem solid $lineColor;
     flex: 1;
+
 }
 
 hrsd-kniznica-form-to-add-book {

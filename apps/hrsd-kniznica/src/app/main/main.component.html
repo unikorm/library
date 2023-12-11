@@ -1,9 +1,11 @@
 
 <!-- ul list of all books will be here, single book will be separate component -->
-    <ul>
-        @for (book of books$; track book.name) {
-            <hrsd-kniznica-book [book]="book"></hrsd-kniznica-book>
-          }
-    </ul>
+    <section>
+        <ul class="scrollable-list">
+            @for (book of books$; track book.name) {
+                <hrsd-kniznica-book [book]="book"></hrsd-kniznica-book>
+              }
+        </ul>
+    </section>
 
     <hrsd-kniznica-form-to-add-book></hrsd-kniznica-form-to-add-book>

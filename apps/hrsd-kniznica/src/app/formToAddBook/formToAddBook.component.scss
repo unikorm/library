@@ -67,3 +67,7 @@ button:hover {
     color: $fontColorMain;
     border-color: $fontColorMain;
 }
+
+:host {
+    border-top: .2rem solid $lineColor;
+}
