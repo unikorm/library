@@ -1,7 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
+import { Book } from '../main/book.interface';
 
 @Component({
   selector: 'hrsd-kniznica-book',
@@ -12,4 +14,5 @@ import { RouterModule } from '@angular/router';
 })
 export class BookComponent {  // here will be imported service component to handle clicking on each buttons
   // title = 'Book component';
+  @Input() book!: Book;
 }

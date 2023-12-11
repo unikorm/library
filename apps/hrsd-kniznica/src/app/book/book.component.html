@@ -2,8 +2,8 @@
 <!-- here will be book from list of books with name, author and interactive buttons info, return, loan, delete -->
 <li>
     <section>
-        <h4>Name of book</h4> <!-- dynamic line -->
-        <span>Author of book</span> <!-- dynamic line -->
+        <h4>{{ book.name }}</h4> <!-- dynamic line -->
+        <span>{{ book.author }}</span> <!-- dynamic line -->
     </section>
     <aside>
         <button class="btnInfo" [routerLink]="['blabla']" title="Information about Book" >ℹ️</button>
