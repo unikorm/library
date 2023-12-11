@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {  // here must be imported service
   ngOnInit(): void {
     this.mainService.getItems()
       .subscribe({
-        next: value => this.books$ = value,
+        next: value => {this.books$ = value; console.log(this.books$)},
         error: err => console.error(err),
         complete: () => console.log('Subscribing books is DONE!')
       });
