@@ -47,5 +47,5 @@ export class MainComponent implements OnInit {
         error: err => console.error(err),
         complete: () => console.log('Subscribing books is DONE!')
       });
-  }
+  };
 };

@@ -16,7 +16,7 @@ import { BookService } from './book.service';
 export class BookComponent {
   // title = 'Book component';
   @Input() book!: Book;
-
+  
   constructor(private readonly bookService: BookService) {}
 
   @Output() bookRemoved = new EventEmitter<Book>();
@@ -32,7 +32,6 @@ export class BookComponent {
           error: err => console.error(err),
           complete: () => console.log('deleting is DONE!')
         });
-    }
-  }
-
-}
+    };
+  };
+};
