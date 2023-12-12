@@ -1,20 +1,20 @@
 
-<!-- here will be simple form to add book with name of her, author and a brief description of her -->
 <section class="form">
     <h4>Add book form:</h4>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <input type="text" class="form-control" id="name" formControlName="name" placeholder="Name of Book:">
+          <input type="text" class="form-control" formControlName="name" placeholder="Name of Book:">
+          <!-- <div *ngIf="name!.errors?.['required']">Write it here</div> -->
         </div>
       
         <div class="form-group">
-          <input type="text" class="form-control" id="author" formControlName="author" placeholder="Author of Book:">
+          <input type="text" class="form-control" formControlName="author" placeholder="Author of Book:">
         </div>
       
         <div class="form-group">
-          <textarea class="form-control" id="description" formControlName="description" placeholder="Some description about Book:"></textarea>
+          <textarea class="form-control" formControlName="description" placeholder="Some description about Book:"></textarea>
         </div>
       
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Add</button>
       </form>
 </section>
