@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {  // here must be imported service
   constructor(private readonly mainService: MainService) {}
 
   ngOnInit(): void {
-    this.mainService.getItems()
+    this.mainService.getBooks()
       .subscribe({
         next: value => {
           this.books$ = value;
