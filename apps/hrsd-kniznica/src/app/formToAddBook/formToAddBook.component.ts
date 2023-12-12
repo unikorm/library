@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -18,8 +18,11 @@ export class FormToAddBookComponent implements OnInit {
   // title = 'Form to add book';
   constructor(private readonly addService: FormToAddBookService, private readonly mainService: MainService) {}
 
-  actor: Book = {name: '', author: '', description: ''};
+  private actor: Book = {name: '', author: '', description: ''};
   form!: FormGroup;
+  newBooks$: Book[] = [];
+  @Output() updatedBooks = new EventEmitter<Book[]>();
+
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -40,7 +43,14 @@ export class FormToAddBookComponent implements OnInit {
       .subscribe({
         next: value => {
           console.log(value);
-          this.mainService.updateBooksList()
+          this.addService.updateBooksList()
+          .subscribe({
+            next: (result: Book[]) => {
+              this.newBooks$ = result;
+              this.updatedBooks.emit(this.newBooks$);
+              console.log(this.newBooks$);
+            }
+          })
         },
         error: value => console.error(value),
         complete: () => console.log('book is added into database!')

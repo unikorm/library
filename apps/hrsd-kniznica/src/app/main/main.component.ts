@@ -21,14 +21,19 @@ export class MainComponent implements OnInit {
   constructor(private readonly mainService: MainService) {}
 
   ngOnInit(): void {
+    
     this.mainService.getBooks()
       .subscribe({
         next: value => {
           this.books$ = value;
-          console.log(this.books$)
+          console.log('List of books:', this.books$)
         },
         error: err => console.error(err),
         complete: () => console.log('Subscribing books is DONE!')
       });
   };
+
+  formToAddBookComponent(data: Book[]) {
+    this.books$ = data;
+  }
 };
