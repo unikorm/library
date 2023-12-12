@@ -5,6 +5,7 @@ import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angula
 
 import { Book } from '../main/book.interface';
 import { FormToAddBookService } from './formToAddBook.service';
+import { MainService } from '../main/main.service';
 
 @Component({
   selector: 'hrsd-kniznica-form-to-add-book',
@@ -15,7 +16,7 @@ import { FormToAddBookService } from './formToAddBook.service';
 })
 export class FormToAddBookComponent implements OnInit {
   // title = 'Form to add book';
-  constructor(private readonly addService: FormToAddBookService) {}
+  constructor(private readonly addService: FormToAddBookService, private readonly mainService: MainService) {}
 
   actor: Book = {name: '', author: '', description: ''};
   form!: FormGroup;
@@ -26,25 +27,25 @@ export class FormToAddBookComponent implements OnInit {
       author: new FormControl<string>(this.actor.author, [Validators.required]),
       description: new FormControl<string>(this.actor.description, [Validators.required, Validators.minLength(20)]),
     });
-    // this.form.valueChanges.subscribe(console.log)
   };
 
-  // get name(): AbstractControl<string> | null { return this.form.get('name'); }
 
   onSubmit(): void {
-    // console.warn(this.form.value);
     const book: Book = {
       name: this.form.value.name,
       author: this.form.value.author,
       description: this.form.value.description
-    }
+    };
     this.addService.addBook(book)
       .subscribe({
-        next: value => console.log(value),
+        next: value => {
+          console.log(value);
+          this.mainService.updateBooksList()
+        },
         error: value => console.error(value),
         complete: () => console.log('book is added into database!')
-      })
+      });
     this.form.reset();
-  }
+  };
 
-}
+};

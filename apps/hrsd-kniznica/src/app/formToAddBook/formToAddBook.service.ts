@@ -14,6 +14,6 @@ export class FormToAddBookService {
   addBook(book: Book) {
     const headers = { 'Content-Type': 'application/json' };
 
-    return this.http.post<Book>('http://localhost:3000/books', JSON.stringify(book), { headers })
-  }
-}
+    return this.http.post<Book>('http://localhost:3000/books', JSON.stringify(book), { headers });
+  };
+};

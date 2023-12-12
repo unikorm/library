@@ -10,9 +10,19 @@ import { Book } from './book.interface';
 })
 export class MainService {
 
+  private books$: Book[] = [];
+
   constructor(private readonly http: HttpClient) {}
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>('http://localhost:3000/books', {responseType: 'json'})  
-  }
+  };
+
+  updateBooksList() {
+    // this.books$ = [];
+    return this.http.get<Book[]>('http://localhost:3000/books', {responseType: 'json'})
+      // .subscribe(
+      //   (result: Book[]) => this.books$ = result,
+      // )
+  };
 }
