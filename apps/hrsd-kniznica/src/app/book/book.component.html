@@ -1,5 +1,4 @@
 
-<!-- here will be book from list of books with name, author and interactive buttons info, return, loan, delete -->
 <li>
     <section>
         <h4>{{ book.name }}</h4> <!-- dynamic line -->
@@ -9,6 +8,6 @@
         <button class="btnInfo" [routerLink]="['blabla']" title="Information about Book" >ℹ️</button>
         <button class="btnReturn" title="Return this book" >↪️</button>
         <button class="btnLoan" title="Loan this book" >✅</button>
-        <button class="btnRemove" title="Remove book from library" >❌</button>
+        <button class="btnRemove" (click)="removeBook()" title="Remove book from library" >❌</button>
     </aside>
 </li>

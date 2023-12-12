@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Book } from '../main/book.interface';
 
@@ -11,21 +12,13 @@ export class FormToAddBookService {
 
   constructor(private readonly http: HttpClient) {}
 
-  // books$: Book[] =[];
-
-  addBook(book: Book) {
+  addBook(book: Book): Observable<Book> {
     const headers = { 'Content-Type': 'application/json' };
 
     return this.http.post<Book>('http://localhost:3000/books', JSON.stringify(book), { headers });
   };
 
-  updateBooksList() {
+  updateBooksList(): Observable<Book[]> {
     return this.http.get<Book[]>('http://localhost:3000/books', {responseType: 'json'})
-      // .subscribe({
-      //   next: (result: Book[]) => {
-      //     this.books$ = result,
-      //     console.log(this.books$)
-      //   }
-      // })
   };
 };
