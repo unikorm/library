@@ -19,10 +19,12 @@ export class MainService {
   };
 
   updateBooksList() {
-    // this.books$ = [];
     return this.http.get<Book[]>('http://localhost:3000/books', {responseType: 'json'})
-      // .subscribe(
-      //   (result: Book[]) => this.books$ = result,
-      // )
+      .subscribe({
+        next: (result: Book[]) => {
+          this.books$ = result,
+          console.log(this.books$)
+        }
+      })
   };
 }

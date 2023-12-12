@@ -14,16 +14,13 @@ import { MainService } from './main.service';
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
 })
-export class MainComponent implements OnInit {  // here must be imported service component to handle showing list of book componnets (their updates of course too)
+export class MainComponent implements OnInit {
   // title = 'Main';
   books$: Book[] = [];
 
   constructor(private readonly mainService: MainService) {}
 
   ngOnInit(): void {
-    this.mainService.updateBooksList().subscribe(
-      (result: Book[]) => this.books$ = result
-    ),
     this.mainService.getBooks()
       .subscribe({
         next: value => {
