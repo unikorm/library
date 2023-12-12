@@ -1,5 +1,5 @@
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -19,11 +19,16 @@ export class BookComponent {
 
   constructor(private readonly bookService: BookService) {}
 
+  @Output() bookRemoved = new EventEmitter<Book>();
+
   removeBook(): void {
     if (this.book) {
       this.bookService.removeBook(this.book._id!)
         .subscribe({
-          next: () => console.log('book deleted'),
+          next: () => {
+            console.log('book deleted');
+            this.bookRemoved.emit(this.book);
+          },
           error: err => console.error(err),
           complete: () => console.log('deleting is DONE!')
         });

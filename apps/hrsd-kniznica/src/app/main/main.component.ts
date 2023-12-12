@@ -36,4 +36,16 @@ export class MainComponent implements OnInit {
   formToAddBookComponent(data: Book[]) {
     this.books$ = data;
   }
+
+  onBooksRemoved(): void {
+    this.mainService.getBooks()
+      .subscribe({
+        next: value => {
+          this.books$ = value;
+          console.log('List of books:', this.books$)
+        },
+        error: err => console.error(err),
+        complete: () => console.log('Subscribing books is DONE!')
+      });
+  }
 };
