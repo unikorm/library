@@ -45,9 +45,17 @@ export class BookComponent {
       name: this.book.name,
       author: this.book.author,
       description: this.book.description,
-      status: this.book.status  // but here i must put opposite value of existing status
+      status: !this.book.status,
     }
-    this.bookService.updateStatus(updatedBook)  // and here i must put bookUpdated to emit to parent to do get request
+    this.bookService.updateStatus(updatedBook)
+      .subscribe({
+        next: () => {
+          console.log('book updated');
+          this.bookUpdated.emit(this.book);
+        },
+        error: err => console.error(err),
+        complete: () => console.log('updating book is DONE')
+      });
   };
 
 };
