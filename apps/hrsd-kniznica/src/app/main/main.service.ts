@@ -15,4 +15,4 @@ export class MainService {
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>('http://localhost:3000/books', {responseType: 'json'})  
   };
-}
+};

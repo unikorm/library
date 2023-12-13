@@ -1,9 +1,9 @@
 <!-- here will be place to put info about specific book, her author, some info about and dates of loans/returns -->
 <section>
     <h4>About book</h4>  <!-- static line -->
-    <h1>Name of Book</h1> <!-- dynamic line -->
-    <span>Autor Autorovy</span> <!-- dynamic line -->
-    <p>description about this boring piece of shit. Sapiens is great book, METRO is great series, Born To Run is wonderful and of course how can i forgot, Herry Hole is masterpiece... but this sucks...</p> <!-- dynamic line -->
+    <h1>{{ book.name }}</h1> <!-- dynamic line -->
+    <span>{{ book.author }}</span> <!-- dynamic line -->
+    <p>{{ book.description }}</p> <!-- dynamic line -->
     <h4>Dates of loans/returns:</h4> <!-- static line -->
     <p>here will be data from database somehow...</p> <!-- dynamic line -->
 </section>

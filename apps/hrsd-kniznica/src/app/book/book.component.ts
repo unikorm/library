@@ -61,6 +61,6 @@ export class BookComponent {
   // function to go on About page with this book in URL
   navigateToAbout(): void {
     const bookId: string = this.book._id!;
-    this.router.navigate([bookId]);
+    this.router.navigate([bookId], { queryParams: { id: this.book._id } });
   };
 };
