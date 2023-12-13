@@ -7,9 +7,14 @@
     <aside>
         <button class="btnInfo" [routerLink]="['blabla']" title="Information about Book" >ℹ️</button>
 
-
-        <button class="btnReturn" title="Return this book" >↪️</button>  <!-- only if status false, that mean only when you want return her -->
-        <button class="btnLoan" title="Loan this book" >✅</button>  <!-- only if status true, that mean only when she is available to loan -->
-        <button class="btnRemove" (click)="removeBook()" title="Remove book from library" >❌</button>  <!-- only if status true, that means she is available, so user can delete her too -->
+        @if (!book.status) {
+            <button class="btnReturn" (click)="updateStatus()" title="Return this book" >↪️</button>
+        }
+        @if (book.status) {
+            <button class="btnLoan" (click)="updateStatus()" title="Loan this book" >✅</button> 
+        }
+        @if (book.status) {
+            <button class="btnRemove" (click)="removeBook()" title="Remove book from library" >❌</button>
+        }
     </aside>
 </li>

@@ -2,7 +2,7 @@
     <section>
         <ul class="scrollable-list">
             @for (book of books$; track book._id) {
-                <hrsd-kniznica-book (bookRemoved)="onBooksRemoved()" [book]="book"></hrsd-kniznica-book>
+                <hrsd-kniznica-book (bookUpdated)="onBooksRemoved()" (bookRemoved)="onBooksRemoved()" [book]="book"></hrsd-kniznica-book>
               }
         </ul>
     </section>

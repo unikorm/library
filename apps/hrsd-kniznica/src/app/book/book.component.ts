@@ -20,7 +20,10 @@ export class BookComponent {
   constructor(private readonly bookService: BookService) {}
 
   @Output() bookRemoved = new EventEmitter<Book>();
+  @Output() bookUpdated = new EventEmitter<Book>();
 
+
+  // function to delete book from database
   removeBook(): void {
     if (this.book) {
       this.bookService.removeBook(this.book._id!)
@@ -34,4 +37,17 @@ export class BookComponent {
         });
     };
   };
+
+  // function to update status of the book to opposite (toogle them)
+  updateStatus(): void {
+    const updatedBook: Book = {
+      _id: this.book._id,
+      name: this.book.name,
+      author: this.book.author,
+      description: this.book.description,
+      status: this.book.status  // but here i must put opposite value of existing status
+    }
+    this.bookService.updateStatus(updatedBook)  // and here i must put bookUpdated to emit to parent to do get request
+  };
+
 };
