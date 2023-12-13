@@ -1,21 +1,15 @@
 # HrsdKniznica
 
 
-## Generate code
-
-If you happen to use Nx plugins, you can leverage code generators that might come with it.
-
-Run `nx list` to get a list of available plugins and whether they have generators. Then run `nx list <plugin-name>` to see what generators are available.
-
-Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-code-generators).
-
 ## tasks to do
 
 1. make minimal static frontend structure  ✅
 2. make database + backend workin ✅
 3. make simple connection frontend - backend - databaza ✅
-4. make features and everything needed here works
-5. make history of loans/returns workin 
+4. make adding/deleting DONE and buttons logic on frontend ✅
+5. make loaning/ returning logic (changing of status)
+6. make info page workin as it must
+7. make history of loans/returns workin (save it into database and show it in info)
 
 ## mockup
 
