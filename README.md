@@ -7,7 +7,7 @@
 2. make database + backend workin ✅
 3. make simple connection frontend - backend - databaza ✅
 4. make adding/deleting DONE and buttons logic on frontend ✅
-5. make loaning/ returning logic (changing of status)
+5. make loaning/ returning logic (changing of status) ✅
 6. make info page workin as it must
 7. make history of loans/returns workin (save it into database and show it in info)
 
