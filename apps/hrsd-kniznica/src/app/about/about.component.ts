@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-// import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { AboutService } from './about.service';
 import { Book } from '../main/book.interface';
@@ -16,7 +16,7 @@ import { Book } from '../main/book.interface';
 })
 export class AboutComponent implements OnInit {
   // title = 'About Book';
-  book!: Book;
+  book$!: Observable<Book>;
 
   constructor(private readonly aboutService: AboutService, private readonly route: ActivatedRoute) {}
 
@@ -24,15 +24,7 @@ export class AboutComponent implements OnInit {
     if (this.route.snapshot.params['id']) {
       const bookId: string = this.route.snapshot.params['id'];
       
-      this.aboutService.getBook(bookId)
-        .subscribe({
-          next: (result: Book) => {
-            this.book = result
-            console.log('Data is ready!');
-          },
-          error: err => console.error(err),
-          complete: () => console.log('Data loading is complete!')
-        });
+      this.book$ = this.aboutService.getBook(bookId)
     };
   };
 }
