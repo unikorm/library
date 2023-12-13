@@ -1,7 +1,7 @@
 
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Book } from '../main/book.interface';
 import { BookService } from './book.service';
@@ -9,7 +9,7 @@ import { BookService } from './book.service';
 @Component({
   selector: 'hrsd-kniznica-book',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss',
 })
@@ -17,7 +17,7 @@ export class BookComponent {
   // title = 'Book component';
   @Input() book!: Book;
   
-  constructor(private readonly bookService: BookService) {}
+  constructor(private readonly bookService: BookService, private readonly router: Router) {}
 
   @Output() bookRemoved = new EventEmitter<Book>();
   @Output() bookUpdated = new EventEmitter<Book>();
@@ -58,4 +58,9 @@ export class BookComponent {
       });
   };
 
+  // function to go on About page with this book in URL
+  navigateToAbout(): void {
+    const bookId: string = this.book._id!;
+    this.router.navigate([bookId]);
+  };
 };

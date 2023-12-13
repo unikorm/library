@@ -11,8 +11,8 @@ export const appRoutes: Route[] = [
         title: 'Library',
     },
     {
-        path: 'blabla',  // test, here will be dynamic route to book user click
+        path: ':id',
         component: AboutComponent,
-        title: 'About (test)',
+        title: 'About',  // here i want dinamically put name of actual book
     }
 ];

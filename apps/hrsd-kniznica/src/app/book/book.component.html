@@ -5,7 +5,7 @@
         <span>{{ book.author }}</span> <!-- dynamic line -->
     </section>
     <aside>
-        <button class="btnInfo" [routerLink]="['blabla']" title="Information about Book" >ℹ️</button>
+        <button class="btnInfo" (click)="navigateToAbout()" title="Information about Book" >ℹ️</button>
 
         @if (!book.status) {
             <button class="btnReturn" (click)="updateStatus()" title="Return this book" >↪️</button>

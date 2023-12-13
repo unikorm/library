@@ -9,6 +9,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
-export class AboutComponent {  // here will be imported service to handle showing correct data from database about book
+export class AboutComponent {
   // title = 'About Book';
 }
