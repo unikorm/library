@@ -16,8 +16,7 @@ export class LoansService {
     }
 
     async createLoan(addLoanDTO: AddLoanDTO): Promise<Loan> {
-        const { book } = addLoanDTO;
-        const newLoan = await this.loanModel.create({ book: book });
+        const newLoan = await this.loanModel.create(addLoanDTO);
         return newLoan;
     }
 

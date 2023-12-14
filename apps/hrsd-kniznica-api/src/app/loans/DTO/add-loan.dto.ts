@@ -2,6 +2,6 @@ import { ObjectId } from "mongoose";
 
 export class AddLoanDTO {
     readonly book: ObjectId;
-    readonly time: Date;
+    readonly when: string;
     readonly status: boolean;
 }
