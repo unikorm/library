@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+// import { Title } from '@angular/platform-browser';
 
 import { AboutService } from './about.service';
 import { Book } from '../main/book.interface';
@@ -15,16 +16,16 @@ import { Book } from '../main/book.interface';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent implements OnInit {
-  title = 'About Book';
+  // title = 'About';
   book$!: Observable<Book>;
 
   constructor(private readonly aboutService: AboutService, private readonly route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    if (this.route.snapshot.params['id']) {
-      const bookId: string = this.route.snapshot.params['id'];
+    if (this.route.snapshot.paramMap.get('id')) {
+      const bookId: string = this.route.snapshot.paramMap.get('id')!;
       
-      this.book$ = this.aboutService.getBook(bookId)
+      this.book$ = this.aboutService.getBook(bookId);
     };
   };
 }

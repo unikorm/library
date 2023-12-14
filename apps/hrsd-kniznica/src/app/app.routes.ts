@@ -13,6 +13,6 @@ export const appRoutes: Route[] = [
     {
         path: ':id',
         component: AboutComponent,
-        // title: 'About',  // here i want dinamically put name of actual book
+        title: 'About',
     }
 ];
