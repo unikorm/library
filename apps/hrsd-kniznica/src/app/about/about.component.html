@@ -1,6 +1,12 @@
 
 <section>
-    <h4>About book</h4> 
+    <article class="title">
+        <h4>About book</h4>
+        <span *ngIf="book$ | async; let book">
+            <span *ngIf="!book.status" >loaned</span>
+            <span *ngIf="book.status" >free to loan!</span>
+        </span>
+    </article>
     <h1 *ngIf="book$ | async; let book" >{{ book.name }}</h1>
     <span *ngIf="book$ | async; let book" >{{ book.author }}</span>
     <p *ngIf="book$ | async; let book" >{{ book.description }}</p>

@@ -37,14 +37,16 @@ aside button {
     font-size: 1.13rem;
     padding: .2rem .3rem;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 aside button:hover {
-    font-size: 1.2rem;
+    transform: translateY(-.23rem);
+    transition: all 0.2s ease-in-out;
 }
 
 aside button:not(:last-of-type) {
-    margin: 0 .3rem 0 0;
+    margin: 0 .4rem 0 0;
 }
 
 .btnInfo {

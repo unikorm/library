@@ -15,7 +15,7 @@ import { Book } from '../main/book.interface';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent implements OnInit {
-  // title = 'About Book';
+  title = 'About Book';
   book$!: Observable<Book>;
 
   constructor(private readonly aboutService: AboutService, private readonly route: ActivatedRoute) {}
