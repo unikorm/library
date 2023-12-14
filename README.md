@@ -9,7 +9,7 @@
 4. make adding/deleting DONE and buttons logic on frontend ✅
 5. make loaning/ returning logic (changing of status) ✅
 6. make info page workin as it must ✅
-7. three details: animation on btns, url adress on about, status loaned/returned on about
+7. three details: animation on btns, url adress on about, status loaned/returned on about ✅
 8. make history of loans/returns workin (save it into database and show it in info)
 
 ## mockup
