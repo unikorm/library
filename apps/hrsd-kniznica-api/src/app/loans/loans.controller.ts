@@ -8,7 +8,7 @@ import { Loan } from './schemas/loan.schema';
 @Controller('loans')
 export class LoansController {
 
-    constructor(private readonly loansService: LoansService) {};  // LoanService
+    constructor(private readonly loansService: LoansService) {};
 
     @Get(':bookId')
     async getLoanRecords(@Param('bookId') bookId: string): Promise<Loan[]> {
@@ -20,4 +20,8 @@ export class LoansController {
         return this.loansService.createLoan(addLoanDTO)
     }
 
+    @Delete(':bookId')
+    async deleteRecords(@Param('bookId') bookId: string): Promise<void> {
+        return this.loansService.removeLoanRecords(bookId)
+    }
 }

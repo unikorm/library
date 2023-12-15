@@ -10,5 +10,6 @@ import { Loan, LoanSchema } from './schemas/loan.schema';
     imports: [MongooseModule.forFeature([{ name: Loan.name, schema: LoanSchema }])],
     controllers: [LoansController],
     providers: [LoansService],
+    exports: [LoansService]
 })
 export class LoansModule {}

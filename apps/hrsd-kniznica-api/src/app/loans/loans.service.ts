@@ -16,8 +16,10 @@ export class LoansService {
     }
 
     async createLoan(addLoanDTO: AddLoanDTO): Promise<Loan> {
-        const newLoan = await this.loanModel.create(addLoanDTO);
-        return newLoan;
+        return await this.loanModel.create(addLoanDTO);
     }
 
+    async removeLoanRecords(bookId:string): Promise<void> {
+        await this.loanModel.deleteMany({ book: bookId }).exec();
+    }
 }

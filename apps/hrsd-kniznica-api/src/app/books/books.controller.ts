@@ -10,29 +10,28 @@ export class BooksController {
 
     constructor(private readonly booksService: BooksService) {}
 
-    @Get()  // this will be on getting all books on list of books
+    @Get()
     async allBooks(): Promise<Book[]> {
         return this.booksService.findAll();
     }
 
-    @Get(':id')  // this will be on getting separate book when user click on about 
+    @Get(':id')
     async bookByName(@Param('id') id: string): Promise<Book> {
         return this.booksService.findOne(id);
     }
 
-    @Post()  // this will create new book from form to add new one
+    @Post()
     async addBook(@Body() addBookDTO: AddBookDTO): Promise<Book> {
         return this.booksService.create(addBookDTO);
     }
 
-    @Delete(':id')  // this will delete book when user hits delete btn
-    async removeBook(@Param('id') id: string) {
+    @Delete(':id')
+    async removeBook(@Param('id') id: string): Promise<void> {
         return this.booksService.remove(id);
     }
 
-    @Put(':id') // this update status of loan/return book (but it works only with id, not name)
+    @Put(':id')
     async updateStatus(@Body() addBookDTO: AddBookDTO, @Param('id') id): Promise<Book> {
         return this.booksService.updateStatus(id, addBookDTO);
     }
-
 }
