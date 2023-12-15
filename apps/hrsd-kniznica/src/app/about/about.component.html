@@ -11,10 +11,12 @@
     <span *ngIf="book$ | async; let book" >{{ book.author }}</span>
     <p *ngIf="book$ | async; let book" >{{ book.description }}</p>
     <h4>Dates of loans/returns:</h4>
-    <ul>
-        <li *ngFor="let loan of loanRecords$ | async">
-            <p *ngIf="!loan.status" >Book loaned {{ formatDate(loan.when) }}</p>
-            <p *ngIf="loan.status" >Book returned {{ formatDate(loan.when) }}</p>
-        </li>
-    </ul>
+    <aside>
+        <ul>
+            <li *ngFor="let loan of loanRecords$ ">
+                <p *ngIf="!loan.status" >Book loaned: {{ formatDate(loan.when) }}</p>
+                <p *ngIf="loan.status" class="returned" >Book returned: {{ formatDate(loan.when) }}</p>
+            </li>
+        </ul>
+    </aside>
 </section>

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-// import { Title } from '@angular/platform-browser';
 
 import { AboutService } from './about.service';
 import { Book } from '../main/book.interface';
@@ -19,7 +18,7 @@ import { Loan } from '../book/loan.interface';
 export class AboutComponent implements OnInit {
   // title = 'About';
   book$!: Observable<Book>;
-  loanRecords$!: Observable<Loan[]>
+  loanRecords$!: Loan[]
 
   constructor(private readonly aboutService: AboutService, private readonly route: ActivatedRoute) {}
 
@@ -38,7 +37,15 @@ export class AboutComponent implements OnInit {
       const bookId: string = this.route.snapshot.paramMap.get('id')!;
       
       this.book$ = this.aboutService.getBook(bookId);
-      this.loanRecords$ = this.aboutService.getLoans(bookId);
+      this.aboutService.getLoans(bookId)
+        .subscribe({
+          next: value => {
+            this.loanRecords$ = value;
+            this.loanRecords$.reverse();
+          },
+          error: err => console.error(err),
+          complete: () => console.log('reversing history of loans DONE!')
+        });
     };
   };
 }
