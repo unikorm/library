@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { Book } from '../main/book.interface';
 import { BookService } from './book.service';
+import { Loan } from './loan.interface';
 
 @Component({
   selector: 'hrsd-kniznica-book',
@@ -47,6 +48,12 @@ export class BookComponent {
       description: this.book.description,
       status: !this.book.status,
     }
+    const loanRecord: Loan = {
+      book: this.book._id!,
+      when: new Date,
+      status: !this.book.status,
+    }
+
     this.bookService.updateStatus(updatedBook)
       .subscribe({
         next: () => {
@@ -55,6 +62,13 @@ export class BookComponent {
         },
         error: err => console.error(err),
         complete: () => console.log('updating book is DONE')
+      });
+
+    this.bookService.addLoanRecord(loanRecord)
+      .subscribe({
+        next: () => console.log('loan record send'),
+        error: err => console.error(err),
+        complete: () => console.log('loan record CREATED!')
       });
   };
 

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Book } from '../main/book.interface';
+import { Loan } from './loan.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,11 @@ export class BookService {
 
     return this.http.put(`http://localhost:3000/books/${book._id}`, JSON.stringify(book), { headers })
   };
+
+  addLoanRecord(loan: Loan): Observable<Loan> {
+    const headers = { 'Content-Type': 'application/json' };
+
+    return this.http.post<Loan>('http://localhost:3000/loans', JSON.stringify(loan), { headers })
+  }
 
 };
