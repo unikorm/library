@@ -2,7 +2,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Inject } from '@nestjs/common';
 
 import { Book } from './schemas/book.schema';
 import { AddBookDTO } from './DTO/add-book.dto';
@@ -11,7 +10,7 @@ import { LoansService } from '../loans/loans.service';
 @Injectable()
 export class BooksService {
 
-    constructor(@InjectModel(Book.name) private readonly bookModel: Model<Book>,  @Inject(LoansService) private loansService: LoansService) {}
+    constructor(@InjectModel(Book.name) private readonly bookModel: Model<Book>, private readonly loansService: LoansService) {}
 
     async findAll(): Promise<Book[]> {
         return await this.bookModel.find().exec();
