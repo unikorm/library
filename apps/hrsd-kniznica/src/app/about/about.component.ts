@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 import { AboutService } from './about.service';
 import { Book } from '../main/book.interface';
@@ -19,7 +20,9 @@ export class AboutComponent implements OnInit {
   book$!: Observable<Book>;
   loanRecords$!: Loan[];
 
-  constructor(private readonly aboutService: AboutService, private readonly route: ActivatedRoute) {}
+  constructor(private readonly aboutService: AboutService, 
+  private readonly route: ActivatedRoute,
+  private readonly title: Title) {}
 
   ngOnInit(): void {
     if (this.route.snapshot.paramMap.get('id')) {
@@ -36,6 +39,12 @@ export class AboutComponent implements OnInit {
           complete: () => console.log('reversing history of loans DONE!')
         });
     };
+
+    this.book$.subscribe(book => {
+      if (book) {
+        this.title.setTitle(`About ${book.name}`);
+      };
+    });
   };
 
   formatDate = (date: Date) =>
