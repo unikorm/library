@@ -4,7 +4,6 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <input type="text" class="form-control" formControlName="name" placeholder="Name of Book:">
-          <!-- <div *ngIf="name!.errors?.['required']">Write it here</div> -->  <!-- i want put here in case not filling inputs some text to warn you to that you must -->
         </div>
       
         <div class="form-group">

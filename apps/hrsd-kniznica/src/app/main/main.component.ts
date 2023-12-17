@@ -21,7 +21,6 @@ export class MainComponent implements OnInit {
   constructor(private readonly mainService: MainService) {}
 
   ngOnInit(): void {
-    
     this.mainService.getBooks()
       .subscribe({
         next: value => {
@@ -33,11 +32,11 @@ export class MainComponent implements OnInit {
       });
   };
 
-  formToAddBookComponent(data: Book[]) {
+  formToAddBookComponent(data: Book[]) {  // @Output from formToAddBook component
     this.books$ = data;
-  }
+  };
 
-  onBooksRemoved(): void {
+  onBooksRemoved(): void {  // @Output from book component
     this.mainService.getBooks()
       .subscribe({
         next: value => {

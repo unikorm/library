@@ -5,7 +5,6 @@ import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angula
 
 import { Book } from '../main/book.interface';
 import { FormToAddBookService } from './formToAddBook.service';
-import { MainService } from '../main/main.service';
 
 @Component({
   selector: 'hrsd-kniznica-form-to-add-book',
@@ -15,14 +14,12 @@ import { MainService } from '../main/main.service';
   styleUrl: './formToAddBook.component.scss',
 })
 export class FormToAddBookComponent implements OnInit {
-  // title = 'Form to add book';
-  constructor(private readonly addService: FormToAddBookService, private readonly mainService: MainService) {}
+  constructor(private readonly addService: FormToAddBookService) {}
 
   private actor: Book = {name: '', author: '', description: ''};
   form!: FormGroup;
   newBooks$: Book[] = [];
   @Output() updatedBooks = new EventEmitter<Book[]>();
-
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -31,7 +28,6 @@ export class FormToAddBookComponent implements OnInit {
       description: new FormControl<string>(this.actor.description, [Validators.required, Validators.minLength(20)]),
     });
   };
-
 
   onSubmit(): void {
     const book: Book = {
@@ -57,5 +53,4 @@ export class FormToAddBookComponent implements OnInit {
       });
     this.form.reset();
   };
-
 };

@@ -13,6 +13,6 @@ export const appRoutes: Route[] = [
     {
         path: ':id',
         component: AboutComponent,
-        title: 'About',
+        title: 'About',  // i want here dynamicly set of title...
     }
 ];

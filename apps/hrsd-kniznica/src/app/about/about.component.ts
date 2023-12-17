@@ -16,21 +16,10 @@ import { Loan } from '../book/loan.interface';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent implements OnInit {
-  // title = 'About';
   book$!: Observable<Book>;
-  loanRecords$!: Loan[]
+  loanRecords$!: Loan[];
 
   constructor(private readonly aboutService: AboutService, private readonly route: ActivatedRoute) {}
-
-  formatDate = (date: Date) =>
-      new Date(date).toLocaleString('en-US', {
-        month: 'short',
-        day: '2-digit',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        second: '2-digit'
-  });
 
   ngOnInit(): void {
     if (this.route.snapshot.paramMap.get('id')) {
@@ -48,4 +37,14 @@ export class AboutComponent implements OnInit {
         });
     };
   };
-}
+
+  formatDate = (date: Date) =>
+      new Date(date).toLocaleString('en-US', {
+        month: 'short',
+        day: '2-digit',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit'
+  });
+};

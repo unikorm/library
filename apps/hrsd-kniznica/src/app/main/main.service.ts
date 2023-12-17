@@ -13,6 +13,6 @@ export class MainService {
   constructor(private readonly http: HttpClient) {}
 
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('http://localhost:3000/books', {responseType: 'json'})  
+    return this.http.get<Book[]>('http://localhost:3000/books', {responseType: 'json'});
   };
 };

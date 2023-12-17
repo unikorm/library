@@ -15,16 +15,13 @@ import { Loan } from './loan.interface';
   styleUrl: './book.component.scss',
 })
 export class BookComponent {
-  // title = 'Book component';
-  @Input() book!: Book;
-  
   constructor(private readonly bookService: BookService, private readonly router: Router) {}
 
-  @Output() bookRemoved = new EventEmitter<Book>();
-  @Output() bookUpdated = new EventEmitter<Book>();
+  @Input() book!: Book;  // from main component
 
+  @Output() bookRemoved = new EventEmitter<Book>();  //  to main to refresh list of books
+  @Output() bookUpdated = new EventEmitter<Book>();  // same...
 
-  // function to delete book from database
   removeBook(): void {
     if (this.book) {
       this.bookService.removeBook(this.book._id!)
@@ -72,7 +69,6 @@ export class BookComponent {
       });
   };
 
-  // function to go on About page with this book in URL
   navigateToAbout(): void {
     const id: string = this.book._id!;
     this.router.navigate([id]);
