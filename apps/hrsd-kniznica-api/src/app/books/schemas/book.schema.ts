@@ -16,7 +16,7 @@ export class Book {
   description: string;
 
   @Prop({ required: true, default: true })
-  status: boolean
+  status: boolean;
 }
 
 export const BookSchema = SchemaFactory.createForClass(Book);

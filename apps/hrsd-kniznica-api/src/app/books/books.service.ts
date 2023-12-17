@@ -25,11 +25,11 @@ export class BooksService {
     }
 
     async remove(id: string): Promise<void> {
-        await this.loansService.removeLoanRecords(id);
+        await this.loansService.removeLoanRecords(id);  // first delete all loan records of this book
         await this.bookModel.findByIdAndDelete({ _id: id }).exec();
     }
 
     async updateStatus(id: string, book: Book): Promise<Book> {
-        return await this.bookModel.findByIdAndUpdate(id, book, { new: true })
+        return await this.bookModel.findByIdAndUpdate(id, book, { new: true });
     }
 }

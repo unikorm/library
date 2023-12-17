@@ -16,6 +16,6 @@ export class Loan {
 
     @Prop({ required: true })
     status: boolean;
-}
+};
 
 export const LoanSchema = SchemaFactory.createForClass(Loan);
