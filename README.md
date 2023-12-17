@@ -19,3 +19,8 @@
 ## actual static frontend design
 
 <img width="1680" alt="Snímka obrazovky 2023-12-09 o 3 05 20" src="https://github.com/unikorm/library/assets/71944799/b638e772-96f1-442d-b35f-3b45cb2de04e">
+
+## final view  
+
+<img width="1680" alt="Snímka obrazovky 2023-12-17 o 2 06 09" src="https://github.com/unikorm/library/assets/71944799/cb11000f-d87b-4356-bab5-6d5b66b7b374">
+
